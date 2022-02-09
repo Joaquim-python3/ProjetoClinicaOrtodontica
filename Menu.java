@@ -10,13 +10,13 @@ public class Menu {
 	public void menuPrincipal() {
 		System.out.println("##--MENU PRINCIPAL--##\n\n");
 		System.out.println("|---------------------|");
-		System.out.println("| 1 - ServiÁos |"); // mostrar o plano, oque se pode fazer
+		System.out.println("| 1 - Servi√ßos |"); // mostrar o plano, oque se pode fazer
 		System.out.println("| 2 - Cliente |"); // informacoes do cliente
-		System.out.println("| 3 - Funcionarios |"); // pegar informaÁıes do func // classe abstrata com heranca
+		System.out.println("| 3 - Funcionarios |"); // pegar informa√ß√µes do func // classe abstrata com heranca
 		System.out.println("| 4 - Agendamento de consulta |"); // 
 		System.out.println("| 5 - Sair |");
 		
-		System.out.println("Digite uma opÁ„o: ");
+		System.out.println("Digite uma op√ß√£o: ");
 		opcao = ent.nextInt();
 		
 		switch(opcao) {
@@ -24,7 +24,7 @@ public class Menu {
 				servicos();
 				break;
 			case 2:
-				cadastrarCliente();
+				cliente();
 				break;
 			case 3:
 				funcionarios();
@@ -40,61 +40,55 @@ public class Menu {
 		
 		System.out.println("##--MENU SERVICOS--##\\n\\n\"");
 		System.out.println("| 1 - Clareamento |");
-		System.out.println("| 2 - Procedimento estÈtico |");
-		System.out.println("| 3 - RemoÁ„o de c·rie |");
-		System.out.println("| 4 - Revis„o Geral |");//pergunta oque o paciente quer de especifico e pede um agendamento
+		System.out.println("| 2 - Procedimento est√©tico |");
+		System.out.println("| 3 - Remo√ß√£o de c√°rie |");
+		System.out.println("| 4 - Revis√£o Geral |"); //pergunta oque o paciente quer de especifico e pede um agendamento
 		System.out.println("| 5 - Sair |");
 		
-		System.out.println("Digite uma opÁ„o: ");
+		System.out.println("Digite uma op√ß√£o: ");
 		opcao = ent.nextInt();
+		
 	}
 	
-	public void cadastrarCliente() {
+	public void cliente() {
 		
-		System.out.println("Nome completo do cliente: ");
-		String nome = ent.next();
+		System.out.println("##--MENU SERVICOS--##\\n\\n\"");
+		System.out.println("| 1 - Cadastrar Cliente |");
+		System.out.println("| 2 - Remover cliente |");
+		System.out.println("| 3 - Consultas do cliente|");
+		System.out.println("| 5 - Sair");
 		
-		System.out.println("CPF do cliente: ");
-		String cpf = ent.next();
+		System.out.println("Digite uma op√ß√£o: ");
+		opcao = ent.nextInt();
 		
-		System.out.println("Data de nascimento: ");
-		String dataNascimento = ent.next();
-		
-		System.out.println("O cliente deseja usar plano?\n1 - Sim\t2- N„o");
-		int n = ent.nextInt();
-		
-		switch(n) {
-			case 1:
-				
-				Plano plano = new Plano(nome);
-				
-				System.out.println("Cliente com plano");
-				System.out.println("Cliente cadastrado com sucesso");
-				break;
-				
-			case 2:
-				
-				System.out.println("Cliente sem plano");
-				System.out.println("Cliente cadastrado com sucesso");
-				break;
-			
+		switch(opcao){
+		case 5:
+			break;
 		}
+		
 	}
 	
 	public void agendamentoConsulta() {
 		
-		System.out.println("Qual dia da semana que deseja realizar a consulta?\n1 - Segunda\t2 - TerÁa\n3 - Quarta\t4 - Quinta\t5 - Sexta");
-		String 
+		System.out.println("Qual dia da semana que deseja realizar a consulta?\n1 - Segunda\t2 - Ter√ßa\n3 - Quarta\t4 - Quinta\t5 - Sexta");
+		int dia = ent.nextInt();
 		
-		System.out.println("Hor·rio da consulta: ");
-
+		// essa parte ainda tem que ser definida melhor, pq talvez tenha uma classe de agendamento
+		System.out.println("HOR√ÅRIO DA CONSULTA");
+		System.out.println("hor√°rios dispon√≠veis: "
+				+ "8:00\t10:00\t14:00"
+				+ "16:00\t18:00\t20:00");
+		
+		System.out.print("Digite um horario (numero antes dos ':'):");
+		int h = ent.nextInt(); 
+		Integer.toString(h);
+		
 	}
 	
 	public void funcionarios() {
 		
 		System.out.println("Digite o codigo do funcionario: ");
 		String cdgFuncionario = ent.next(); // quando digitar vai aparacer os subopcoes para Funcionario 
-		
 		
 	}
 	
