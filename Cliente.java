@@ -1,5 +1,7 @@
 package Menu;
 
+import java.util.Scanner;
+
 public class Cliente {
 	private String nome;
 	private String cpf;
@@ -44,6 +46,42 @@ public class Cliente {
 
 	public void setComorbidades(String comorbidades) {
 		this.comorbidades = comorbidades;
+	}
+	
+	
+	public void cadastrarCliente() {
+		
+		Scanner ent = new Scanner(System.in);
+		
+		System.out.println("Nome completo do cliente: ");
+		String nome = ent.next();
+		
+		System.out.println("CPF do cliente: ");
+		String cpf = ent.next();
+		
+		System.out.println("Data de nascimento: ");
+		String dataNascimento = ent.next();
+		
+		System.out.println("O cliente deseja usar plano?\n1 - Sim\t2- Não");
+		int n = ent.nextInt();
+		
+		switch(n) {
+			case 1:
+			
+				Plano plano = new Plano(nome);
+			
+				System.out.println("Cliente com plano");
+				System.out.println("Cliente cadastrado com sucesso");
+				
+			break;
+			
+			case 2:
+			
+				System.out.println("Cliente sem plano");
+				System.out.println("Cliente cadastrado com sucesso");
+			break;
+		
+	}
 	}
 	
 }
