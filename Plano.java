@@ -25,14 +25,22 @@ public class Plano extends Cliente{
 		this.quantidadeDePessoas = quantidadeDePessoas;
 	}
 	
+	// apenas herda
 	public Plano(String nome, String cpf, String dataNascimento, String comorbidades, boolean plano) {
 		super(nome, cpf, dataNascimento, comorbidades, plano);
+		
 	}
-
+	
 	public Plano(tipoPlano tpPlano, int quantidadeDePessoas) {
 		super();
 		tpPlano = tipoPlano.FAMILIAR;
 		this.quantidadeDePessoas = quantidadeDePessoas;
+	}
+	
+
+	public Plano() {
+		super();
+		
 	}
 
 	public int getQuantidadeDePessoas() {
