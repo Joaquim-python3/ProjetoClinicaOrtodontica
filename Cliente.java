@@ -56,4 +56,10 @@ public class Cliente {
 		return plano;
 	}
 
+	@Override
+	public String toString() {
+		return "Informações do cliente\nnome=" + nome + "\ncpf=" + cpf + "\ndataNascimento=" + dataNascimento + "\ncomorbidades="+ comorbidades + "\nplano=" + plano + "]";
+		// comorbidades é apenas um criterio adicional
+	}
+	
 }
