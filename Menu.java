@@ -10,6 +10,7 @@ public class Menu {
 	Scanner ent = new Scanner(System.in);
 	int opcao;
 	UsarCliente mCliente = new UsarCliente();
+	Agendamento ag = new Agendamento();
 
 	public void menuPrincipal() {
 
@@ -38,8 +39,8 @@ public class Menu {
 			break;
 			
 		case 4:
-			
 			mCliente.agendarConsulta();
+			menuPrincipal();
 			break;
 		}
 	}
@@ -120,7 +121,7 @@ public class Menu {
 			break;
 			
 		case 3:
-			
+			ag.horariosDisponiveis(null, null);
 			break;
 			
 		case 4:
@@ -129,8 +130,6 @@ public class Menu {
 		}
 
 	}
-	
-	
 	
 	public void funcionarios() {
 
