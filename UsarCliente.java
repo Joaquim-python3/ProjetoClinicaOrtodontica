@@ -1,6 +1,5 @@
 package Menu;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import Menu.Plano.tipoPlano;
@@ -26,7 +25,7 @@ public class UsarCliente {
 		System.out.println("Comorbidade :");
 		cliente.setComorbidades(ent.next());
 
-		System.out.println("O cliente deseja usar plano?\n1 - Sim\t2- N„o");
+		System.out.println("O cliente deseja usar plano?\n1 - Sim\t2- N√£o");
 		int n = ent.nextInt();
 
 		if (n == 1) {
@@ -58,64 +57,36 @@ public class UsarCliente {
 		} else if (n == 2) {
 			cliente.isPlano(false);
 		} else {
-			System.out.println("Valor inv·lido");
+			System.out.println("Valor inv√°lido");
 
 		}
 
 	}
 	
 	public void agendarConsulta() {
-		String semana[] = new String[5];
-
+		
+        Agendamento ag = new Agendamento();
+        
+        String semana[] = new String[5];
         semana[0] = "Segunda";
-        semana[1] = "TerÁa";
+        semana[1] = "Ter√ßa";
         semana[2] = "Quarta";
         semana[3] = "Quinta";
         semana[4] = "Sexta";
 
-        for(int i = 0; i<5;i++) {
-            System.out.print(semana[i]+"\t");
-        }
+        System.out.println("");
 
-        String[][] horarios = new String[5][6];
-        for (int j = 0;j< 6 ;j++){ // horarios
-            for (int i = 0;i < 5;i++){// dias da semana
-                if(j == 0) {
-                    horarios[i][j] = "8:00";
-                    System.out.print(horarios[i][j]+"\t");
-                } else if(j == 1){
-                    horarios[i][j] = "10:00";
-                    System.out.print(horarios[i][j]+"\t");
-                } else if(j == 2){
-                    horarios[i][j] = "14:00";
-                    System.out.print(horarios[i][j]+"\t");
-                } else if(j == 3){
-                    horarios[i][j] = "16:00";
-                    System.out.print(horarios[i][j]+"\t");
-                } else if(j == 4){
-                    horarios[i][j] = "18:00";
-                    System.out.print(horarios[i][j]+"\t");
-                } else if(j == 5){
-                    horarios[i][j] = "20:00";
-                    System.out.print(horarios[i][j]+"\t");
-                }
-            }
-        }
-// SEGUNDA TER«A QUARTA QUINTA SEXTA
-//  8    8    8     8       8      8
-        System.out.println(
 
-                "Qual dia da semana que deseja realizar a consulta?"
-                        + "\n2 - Segunda\t3 - TerÁa\n4 - Quarta\t5 - Quinta\t6 - Sexta");
-
+        System.out.println("Qual dia da semana que deseja realizar a consulta?"
+                + "\n0 - Segunda\n1 - Ter√ßa\n2 - Quarta\n3 - Quinta\n4 - Sexta");
         int dia = ent.nextInt();
-        System.out.println("Digite o n˙mero do melhor hor·rio para vocÍ: ");
-        int g = ent.nextInt();
-        System.out.println("Marcado com sucesso!!!");
 
-        horarios[dia][g] = "IND.";
-        System.out.println(horarios[dia][g]);
-		
+
+        System.out.println("Digite o n√∫mero do melhor hor√°rio para voc√™: "
+                + "\n0 - 8:00\n1 - 10:00\n2 - 14:00\n3 - 16:00\n4 - 18:00\n5 - 20:00");
+        int g = ent.nextInt();
+
+        ag.agendar(semana,dia,g);
 		
 	}
 }
