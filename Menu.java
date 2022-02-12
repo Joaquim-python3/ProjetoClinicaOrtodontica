@@ -121,10 +121,15 @@ public class Menu {
 			break;
 			
 		case 3:
-			ag.horariosDisponiveis(null, null);
+			
+			ag.horariosDisponiveis();
 			break;
 			
 		case 4:
+			
+			for(Plano p : listaPlanos) {
+				System.out.println(p);
+			}
 			
 			break;
 		}
