@@ -1,6 +1,7 @@
 package Menu;
 
 public class Cliente {
+	
 	private String nome;
 	private String cpf;
 	private String dataNascimento;
@@ -15,7 +16,7 @@ public class Cliente {
 		this.comorbidades = comorbidades;
 		this.plano = plano;
 	}
-	
+
 	public Cliente() {
 		super();
 	}
@@ -52,14 +53,18 @@ public class Cliente {
 		this.comorbidades = comorbidades;
 	}
 
-	public boolean isPlano(boolean b) {
+	public boolean isPlano() {
 		return plano;
+	}
+
+	public void setPlano(boolean plano) {
+		this.plano = plano;
 	}
 
 	@Override
 	public String toString() {
-		return "Informações do cliente\nnome=" + nome + "\ncpf=" + cpf + "\ndataNascimento=" + dataNascimento + "\ncomorbidades="+ comorbidades + "\nplano=" + plano + "]";
-		// comorbidades é apenas um criterio adicional
+		return "Cliente [nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", comorbidades="
+				+ comorbidades + ", plano=" + plano + "]";
 	}
 	
 }
