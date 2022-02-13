@@ -1,11 +1,8 @@
 package Menu;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-
-	ArrayList<Plano> lista = new ArrayList<>();
 
 	Scanner ent = new Scanner(System.in);
 	int opcao;
@@ -51,7 +48,7 @@ public class Menu {
 	// SERVICOS
 	public void servicos() {
 
-		System.out.println("##--MENU SERVICOS--##\n\n\"");
+		System.out.println("##--MENU SERVICOS--##\n\n");
 		System.out.println("| 1 - Clareamento |");
 		System.out.println("| 2 - Procedimento estético |");
 		System.out.println("| 3 - Remoção de cárie |");
@@ -105,47 +102,55 @@ public class Menu {
 			break;
 
 		case 2:
-
+			
+			Cliente ajuda = new Cliente();
+			
 			System.out.println("Digite o nome do cliente: ");
 			String nomeParaRemover = ent.next();
 
-			Cliente plano = new Plano();
-
-			for (Cliente p : lista) {
-				if (p.getNome().equalsIgnoreCase(nomeParaRemover)) {
-					plano = p;
+			for (Cliente c : mCliente.getListaC()) {
+				
+				if (c.getNome().equalsIgnoreCase(nomeParaRemover)) {
+					ajuda = c;
+					
 				}
+				
 			}
 
-			lista.remove(plano);
+			mCliente.getListaC().remove(ajuda);
 			menuCliente();
 			break;
 
-		case 3:
+		case 3: // mostrar os horarios disponiveis
 
 			ag.horariosDisponiveis();
 			break;
 
-		case 4:
-
-//			System.out.print("Digite um nome: ");
-//			String nomeAjuda = ent.next();
-//			System.out.println("");
+		case 4: // consultar
 			
-			for (Plano p : lista) {
+			
+			
+			for (Cliente cliente : mCliente.getListaC()) { // podemos chamar isso de gambiarra?
 				
-				System.out.println("nomeApoios=" + mCliente.getNomeApoio());
-				System.out.println("cpfApoio=" + mCliente.getCpfApoio());
-				System.out.println("dataNascApoio=" + mCliente.getDataNascApoio());
-				System.out.println("********************************");
-				System.out.println("nome="+p.getNome());
-				System.out.println("cpf="+p.getCpf());
-				System.out.println("dataNascimento="+p.getDataNascimento());
+				System.out.println("Digite um nome: ");
+				String nomeConsultar = ent.next();
+				
+				if(cliente.getNome().equalsIgnoreCase(nomeConsultar)) {
+					
+					System.out.println("nome="+cliente.getNome());
+					System.out.println("cpf="+cliente.getCpf());
+					System.out.println("comorbidades="+cliente.getComorbidades());
+					System.out.println("tem plano= "+cliente.isPlano());
+					System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-");
+					
+				}else{ 
+					
+					System.out.println("nenhuma pessoa com esse nome foi cadastrado");
+					
+				}
+				
 			}
 
-			// System.out.println(mCliente.getNomeApoio());//mCliente faz parte da classe
-			// UsarCliente,
-			// nomeApoio serve como um apoio, pq tava retornando null se usar p.getNome
 			menuPrincipal();
 			break;
 
@@ -158,7 +163,7 @@ public class Menu {
 	public void funcionarios() {
 
 		System.out.println("Digite o codigo do funcionario: ");
-		String cdgFuncionario = ent.next(); // quando digitar vai aparacer os subopcoes para Funcionario
+		ent.next();
 
 	}
 
