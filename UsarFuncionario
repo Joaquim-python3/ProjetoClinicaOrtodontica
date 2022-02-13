@@ -1,0 +1,46 @@
+package Menu;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Scanner;
+
+public class UsarFuncionario {
+	
+	Collection<Funcionario> listaFuncionario = new ArrayList<>();
+	
+	Funcionario func = new Funcionario();
+	Scanner ent = new Scanner(System.in);
+
+	public double pagamentoAssiduidade(int quantidadeDeDiasPresente) {
+
+		double salarioPorDia = (func.getSalario() / 20) * quantidadeDeDiasPresente;
+		return salarioPorDia;
+
+	}
+
+	public void cadastrarFuncionario() {
+		
+		Scanner ent = new Scanner(System.in);
+		
+		System.out.println("Codigo do funcionário: ");
+		int codigo = ent.nextInt();
+		
+		System.out.println("Nome do funcionario: ");
+		String nome = ent.next();
+		
+		System.out.println("CPF do funcionario: ");
+		String cpf = ent.next();
+		
+		System.out.println("Salario do funcionario: ");
+		double salario = ent.nextDouble();
+		
+		listaFuncionario.add(func = new Funcionario(codigo ,nome, cpf, salario));
+		
+	}
+
+	public Collection<Funcionario> getListaFuncionario() {
+		return listaFuncionario;
+		
+	}
+	
+}
