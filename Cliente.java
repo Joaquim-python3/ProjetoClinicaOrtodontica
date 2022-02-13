@@ -1,5 +1,7 @@
 package Menu;
 
+import Menu.Plano.tipoPlano;
+
 public class Cliente {
 	
 	private String nome;
@@ -55,16 +57,11 @@ public class Cliente {
 
 	public boolean isPlano() {
 		return plano;
+		
 	}
 
 	public void setPlano(boolean plano) {
 		this.plano = plano;
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", comorbidades="
-				+ comorbidades + ", plano=" + plano + "]";
 	}
 	
 }
