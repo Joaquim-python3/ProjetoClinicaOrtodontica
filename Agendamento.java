@@ -3,9 +3,13 @@ package Menu;
 public class Agendamento {
 	
 	static String[][] horarios = new String[5][6];
+	
+
 
 	public void criarPlanilha() {
-        
+		
+		
+	    
 		for (int j = 0; j < 6; j++) {
 			for (int i = 0; i < 5; i++) {
 				if (j == 0) {
@@ -49,7 +53,15 @@ public class Agendamento {
 		super();
 	}
 
-	public void horariosDisponiveis(String[] semana, String[][] horarios) {
+	public void horariosDisponiveis() {
+		
+		String semana[] = new String[5];
+		
+		semana[0] = "Segunda";
+	    semana[1] = "Terça";
+	    semana[2] = "Quarta";
+	    semana[3] = "Quinta";
+	    semana[4] = "Sexta";
 		
 		for (int i = 0; i < 5; i++) {
 			System.out.print(semana[i] + "\t");
@@ -63,17 +75,25 @@ public class Agendamento {
 		}
 	}
 
-	public void agendar(String[] semana, int dia, int g) {
+	public void agendar(int dia, int g) {
 
 		horarios[dia][g] = "INDIS.";
-
+		
 		System.out.println("Agendado com sucesso!!!");
 		System.out.println("____________________________________________________________");
 
 		System.out.println("");
 		
-		horariosDisponiveis(semana, horarios);
+		horariosDisponiveis();
 
+	}
+
+	public static String[][] getHorarios() {
+		return horarios;
+	}
+
+	public static void setHorarios(String[][] horarios) {
+		Agendamento.horarios = horarios;
 	}
 
 }
