@@ -9,12 +9,14 @@ import Menu.Plano.tipoPlano;
 public class UsarCliente {
 
 	Scanner ent = new Scanner(System.in);
-	Collection<Cliente> listaC = new ArrayList<>();
+	Collection<Plano> listaC = new ArrayList<>();
 
 	int n;
 	boolean plano;
+	int planoVar;
+	int qtdPessoas;
 
-	public Cliente cadastrarCliente() {
+	public void cadastrarCliente() {
 		
 		Scanner ent = new Scanner(System.in);
 
@@ -38,44 +40,53 @@ public class UsarCliente {
 			plano = true;
 
 			System.out.println("Qual o tipo de plano?\n1 - Familiar\t2 - Empresarial");
-			int planoVar = ent.nextInt();
-
+			planoVar = ent.nextInt();
+			
 			switch (planoVar) {
-
+			
+			//instancias caso tenha plano
 			case 1:
 				System.out.println("Quantidade de pessoas para o plano familiar: ");
-				int qtdPessoas = ent.nextInt();
-				Plano p = new Plano(tipoPlano.FAMILIAR, qtdPessoas);
-				p.setQuantidadeDePessoas(qtdPessoas);
+				qtdPessoas = ent.nextInt();
+				
+				Plano p = new Plano(nome, cpf, dataNascimento, comorbidade, plano,tipoPlano.FAMILIAR, qtdPessoas);
 				p.calcularPlano(qtdPessoas, tipoPlano.FAMILIAR);
 				break;
 
 			case 2:
 				System.out.println("Quantidade de pessoas para o plano empresarial: ");
 				qtdPessoas = ent.nextInt();
-				p = new Plano(tipoPlano.EMPRESARIAL, qtdPessoas);
-				p.setQuantidadeDePessoas(qtdPessoas);
+				
+				p = new Plano(nome, cpf, dataNascimento, comorbidade, plano, tipoPlano.EMPRESARIAL, qtdPessoas);
 				p.calcularPlano(qtdPessoas, tipoPlano.EMPRESARIAL);
 				break;
-
+				
+			default:
+				System.out.println("Erro");
+				break;
 			}
 
 		} else if (n == 2) {
+			
 			plano = false;
+			
 		} else {
+			
 			System.out.println("Valor inválido");
 
 		}
-
-		Cliente c = new Cliente(nome, cpf, dataNascimento, comorbidade, plano);
+		
+		// instancia caso nao tenha plano
+		Plano c = new Plano(nome, cpf, dataNascimento, comorbidade, plano);
 
 		listaC.add(c); // adicionando objeto cliente
 		
-		return c;
 	}
-
-	public Collection<Cliente> getListaC() {
+	
+	// get collection do cliente para ser usado na classe menu
+	public Collection<Plano> getListaC() {
 		return listaC;
+		
 	}
 
 	public void agendarConsulta() {
@@ -95,5 +106,13 @@ public class UsarCliente {
 		ag.agendar(dia, g);
 
 	}
-
+	
+	public int getPlanoVar() {
+		return planoVar;
+	}
+	
+	public int getQtdPessoas() {
+		return qtdPessoas;
+	}
+	
 }
